@@ -1,0 +1,75 @@
+/* General setup for animated backgrounds */
+.animated-bg {
+    position: relative;
+    overflow: hidden;
+    background-color: #111827; /* Fallback background */
+}
+.animated-bg > * {
+    position: relative;
+    z-index: 2; /* Ensure content is above the animation pseudo-elements */
+}
+
+/* 1. Hero Section: Floating Orbs */
+#home.animated-bg {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0) 70%);
+    animation: float 20s infinite ease-in-out;
+    z-index: 1;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-100px) translateX(50px); }
+}
+
+/* 2. Skills Section: Aurora Animation */
+#skills.animated-bg {
+    z-index: 0;
+}
+#skills.animated-bg::before, #skills.animated-bg::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 50vmax;
+    height: 50vmax;
+    border-radius: 50%;
+    animation: aurora-glow 15s linear infinite;
+}
+#skills.animated-bg::before {
+    top: -25vmax;
+    left: -25vmax;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+}
+#skills.animated-bg::after {
+    bottom: -25vmax;
+    right: -25vmax;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    animation-delay: -7.5s;
+}
+@keyframes aurora-glow {
+    0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+    25% { transform: translateX(10%) translateY(20%) rotate(90deg); }
+    50% { transform: translateX(-10%) translateY(-20%) rotate(180deg); }
+    75% { transform: translateX(5%) translateY(10%) rotate(270deg); }
+}
+
+/* 3. Education Section: Digital Stream Animation */
+#education.animated-bg {
+    background-image: repeating-linear-gradient(
+        #111827, 
+        #111827 5px, 
+        rgba(16, 185, 129, 0.1) 6px, 
+        rgba(16, 185, 129, 0.1) 7px
+    );
+    background-size: 100% 7px;
+    animation: digital-stream 30s linear infinite;
+}
+@keyframes digital-stream {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -210px; }
+}
