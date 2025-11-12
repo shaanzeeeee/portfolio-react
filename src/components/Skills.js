@@ -50,8 +50,8 @@ const skillsData = {
     management: ["Agile", "Scrum", "Jira", "Office", "Notion"]
 };
 
-const SkillCard = ({ title, description, skills, isIcon = false }) => (
-    <div className="glass-card rounded-2xl p-6">
+const SkillCard = ({ title, description, skills, isIcon = false, revealDelay = 0 }) => (
+    <div className="glass-card rounded-2xl p-6 scroll-reveal" style={{ '--reveal-delay': `${revealDelay}ms` }}>
         <h3 className="text-2xl font-bold mb-3">{title}</h3>
         <p className="text-gray-400 mb-6">{description}</p>
         <div className="flex flex-wrap gap-4 items-center">
@@ -74,16 +74,16 @@ const SkillCard = ({ title, description, skills, isIcon = false }) => (
 
 const Skills = () => {
     return (
-        <section id="skills" className="animated-bg py-20">
+    <section id="skills" className="animated-bg py-20 scroll-reveal section-anchor" style={{ '--reveal-delay': '120ms' }}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-center mb-12">
                         <h2 className="section-title">Skills</h2>
                     </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <SkillCard title="Backend" description="I love problem-solving and building complex systems. I strive to create scalable, reliable, and secure solutions." skills={skillsData.backend} isIcon={true} />
-                    <SkillCard title="Frontend & Design" description="I'm passionate about design, animation, and interactions, always aiming to build fun websites with great user experiences." skills={skillsData.frontend} isIcon={true} />
-                    <SkillCard title="Cloud & DevOps" description="I have deployed and managed various applications using tools such as AWS, GCP, and other cloud services." skills={skillsData.cloud} isIcon={true} />
-                    <SkillCard title="Management" description="I have worked with multiple clients and stakeholders to define projects that suit their needs and have led these projects." skills={skillsData.management} />
+                    <SkillCard title="Backend" description="I love problem-solving and building complex systems. I strive to create scalable, reliable, and secure solutions." skills={skillsData.backend} isIcon={true} revealDelay={0} />
+                    <SkillCard title="Frontend & Design" description="I'm passionate about design, animation, and interactions, always aiming to build fun websites with great user experiences." skills={skillsData.frontend} isIcon={true} revealDelay={140} />
+                    <SkillCard title="Cloud & DevOps" description="I have deployed and managed various applications using tools such as AWS, GCP, and other cloud services." skills={skillsData.cloud} isIcon={true} revealDelay={240} />
+                    <SkillCard title="Management" description="I have worked with multiple clients and stakeholders to define projects that suit their needs and have led these projects." skills={skillsData.management} revealDelay={320} />
                 </div>
             </div>
         </section>

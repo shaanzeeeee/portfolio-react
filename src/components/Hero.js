@@ -22,7 +22,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="home" className="animated-bg">
+    <section id="home" className="animated-bg scroll-reveal section-anchor" style={{ '--reveal-delay': '40ms' }}>
             <div id="orb-container"></div>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-64px)] flex flex-col justify-center relative z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-16">

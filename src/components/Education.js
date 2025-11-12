@@ -76,7 +76,7 @@ const Education = () => {
     ];
 
     return (
-        <section id="education" className="animated-bg py-20">
+    <section id="education" className="animated-bg py-20 scroll-reveal section-anchor" style={{ '--reveal-delay': '160ms' }}>
             <div className="matrix-backdrop" aria-hidden="true">
                 {matrixColumns.map((column) => (
                     <span
@@ -110,7 +110,7 @@ const Education = () => {
                                     {item.align === 'right' ? (
                                         <>
                                             <div className="lg:text-right lg:pr-16">
-                                                <div className="glass-card rounded-lg p-6">
+                                                <div className="glass-card rounded-lg p-6 scroll-reveal" style={{ '--reveal-delay': `${index * 150}ms` }}>
                                                     <h4 className="font-bold text-xl mb-1">{item.title}</h4>
                                                     <p className="text-gray-400">{item.institution}</p>
                                                     <p className="text-sm text-gray-500 mt-2">{item.duration}</p>
@@ -123,7 +123,7 @@ const Education = () => {
                                         <>
                                             <div className="hidden lg:block"></div>
                                             <div className="lg:pl-16">
-                                                <div className="glass-card rounded-lg p-6">
+                                                <div className="glass-card rounded-lg p-6 scroll-reveal" style={{ '--reveal-delay': `${index * 150}ms` }}>
                                                     <h4 className="font-bold text-xl mb-1">{item.title}</h4>
                                                     <p className="text-gray-400">{item.institution}</p>
                                                     <p className="text-sm text-gray-500 mt-2">{item.duration}</p>

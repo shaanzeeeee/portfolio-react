@@ -143,7 +143,11 @@ const Projects = () => {
     const activeProjectData = projectEntries.find(project => project.id === activeProject) ?? projectEntries[0];
 
     return (
-        <section id="projects" className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <section
+            id="projects"
+            className="scroll-reveal section-anchor container mx-auto px-4 sm:px-6 lg:px-8 py-20"
+            style={{ '--reveal-delay': '100ms' }}
+        >
             <div className="flex justify-center mb-12">
                 <h2 className="section-title">Projects</h2>
             </div>
@@ -151,12 +155,13 @@ const Projects = () => {
 
             <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="space-y-48">
-                    {projectEntries.map(project => (
+                    {projectEntries.map((project, index) => (
                         <div
                             key={project.id}
                             id={`exp-${project.id}`}
-                            className="experience-text"
+                            className="experience-text scroll-reveal"
                             data-image-id={project.id}
+                            style={{ '--reveal-delay': `${index * 140}ms` }}
                             onMouseEnter={() => handleActivate(project.id)}
                             onFocus={() => handleActivate(project.id)}
                             onTouchStart={() => handleActivate(project.id)}
@@ -175,7 +180,7 @@ const Projects = () => {
                         </div>
                     ))}
                 </div>
-                <div className="hidden lg:block">
+                <div className="hidden lg:block scroll-reveal" style={{ '--reveal-delay': '220ms' }}>
                     <div className="lg:sticky top-1/4">
                         <div className="relative h-96">
                             {projectEntries.map(project => (
@@ -205,17 +210,14 @@ const Projects = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="flex justify-center gap-4 mt-8 flex-wrap">
+                        <div className="flex justify-center gap-4 mt-8 flex-wrap scroll-reveal" style={{ '--reveal-delay': '280ms' }}>
                             {activeProjectData?.ctas?.filter(cta => Boolean(cta.href)).map(cta => (
                                 <a
                                     key={`${activeProjectData.id}-${cta.label}`}
                                     href={cta.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`project-button inline-block font-semibold px-6 py-2 rounded-lg transition-colors ${cta.variant === 'ghost'
-                                        ? 'bg-transparent border border-emerald-400/60 text-emerald-200'
-                                        : 'bg-gray-800 border border-gray-600 text-gray-200'
-                                    }`}
+                                    className={`project-button ${cta.variant === 'ghost' ? 'project-button--ghost' : 'project-button--solid'}`}
                                 >
                                     {cta.label}
                                 </a>
