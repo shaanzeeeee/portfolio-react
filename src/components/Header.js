@@ -1,4 +1,6 @@
 import React from 'react';
+import { FiGrid } from 'react-icons/fi';
+import { LuWrench, LuGraduationCap } from 'react-icons/lu';
 
 const Header = () => {
     return (
@@ -8,9 +10,30 @@ const Header = () => {
                     <a href="#home" className="text-xl font-bold">Mahinuzzaman Shaan.</a>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <a href="#career" className="px-4 py-2 text-gray-300 rounded-md hover:bg-emerald-900/50 hover:text-emerald-400 transition-colors">Career</a>
-                    <a href="#skills" className="px-4 py-2 text-gray-300 rounded-md hover:bg-emerald-900/50 hover:text-emerald-400 transition-colors">Skills</a>
-                    <a href="#education" className="px-4 py-2 text-gray-300 rounded-md hover:bg-emerald-900/50 hover:text-emerald-400 transition-colors">Education</a>
+                    <a
+                        href="#projects"
+                        className="nav-icon"
+                        data-tooltip="Projects"
+                        aria-label="Projects"
+                    >
+                        <FiGrid />
+                    </a>
+                    <a
+                        href="#skills"
+                        className="nav-icon"
+                        data-tooltip="Skills"
+                        aria-label="Skills"
+                    >
+                        <LuWrench />
+                    </a>
+                    <a
+                        href="#education"
+                        className="nav-icon"
+                        data-tooltip="Education"
+                        aria-label="Education"
+                    >
+                        <LuGraduationCap />
+                    </a>
                 </div>
             </nav>
         </header>
