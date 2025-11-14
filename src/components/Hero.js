@@ -5,35 +5,55 @@ const Hero = () => {
     useEffect(() => {
         const orbContainer = document.getElementById('orb-container');
         if (orbContainer && orbContainer.childElementCount === 0) { // Only run if orbs haven't been created
-            const numOrbs = 10;
+            const numOrbs = 22;
             for (let i = 0; i < numOrbs; i++) {
                 const orb = document.createElement('div');
                 orb.classList.add('orb');
-                const size = Math.random() * 200 + 50;
+                const size = Math.random() * 260 + 80;
                 orb.style.width = `${size}px`;
                 orb.style.height = `${size}px`;
-                orb.style.top = `${Math.random() * 100}%`;
-                orb.style.left = `${Math.random() * 100}%`;
-                orb.style.animationDelay = `${Math.random() * -20}s`;
-                orb.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                const verticalSpread = 140; // percentage of hero height to cover
+                const horizontalSpread = 120; // percentage width coverage
+                orb.style.top = `${Math.random() * verticalSpread - (verticalSpread - 100) / 2}%`;
+                orb.style.left = `${Math.random() * horizontalSpread - (horizontalSpread - 100) / 2}%`;
+
+                const shiftX = (Math.random() * 120 + 20) * (Math.random() > 0.5 ? 1 : -1);
+                const shiftY = (Math.random() * 180 + 60) * (Math.random() > 0.5 ? 1 : -1);
+                const scale = 0.65 + Math.random() * 0.9;
+                const blur = 4 + Math.random() * 6;
+                const opacity = 0.25 + Math.random() * 0.4;
+                orb.style.setProperty('--orb-shift-x', `${shiftX}px`);
+                orb.style.setProperty('--orb-shift-y', `${shiftY}px`);
+                orb.style.setProperty('--orb-scale', scale.toFixed(2));
+                orb.style.setProperty('--orb-blur', `${blur}px`);
+                orb.style.setProperty('--orb-opacity', opacity.toFixed(2));
+
+                const duration = Math.random() * 16 + 18;
+                orb.style.animationDelay = `${Math.random() * -25}s`;
+                orb.style.animationDuration = `${duration}s`;
+                orb.style.setProperty('--orb-duration', `${duration}s`);
                 orbContainer.appendChild(orb);
             }
         }
     }, []);
 
     return (
-    <section id="home" className="animated-bg scroll-reveal section-anchor" style={{ '--reveal-delay': '40ms' }}>
+    <section id="home" className="animated-bg scroll-reveal section-anchor" style={{ '--reveal-delay': '30ms' }}>
             <div id="orb-container"></div>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-64px)] flex flex-col justify-center relative z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-16">
-                    <div className="w-full lg:w-1/3">
-                        <img src="https://scontent.fdac189-1.fna.fbcdn.net/v/t39.30808-6/486178649_2416716892016139_4484602831372546029_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=UzvVlbDVMk0Q7kNvwEGqJtk&_nc_oc=AdmFKc83sZ2nFx5-WR9TszhYxLBEc4UnkOCIEhRLYlnY4Sck_vhkVST43wxfODaJJ84&_nc_zt=23&_nc_ht=scontent.fdac189-1.fna&_nc_gid=j-MtWpZZiN9R6eJAXgWwQw&oh=00_AfhiEiYAolyUKU81osD7FsePpEStIOZGgVToFd9u-kSiTw&oe=691AB1E5" alt="Mahinuzzaman Shaan" className="rounded-lg shadow-2xl w-full" />
+                    <div className="w-full lg:w-1/3 flex justify-center">
+                        <img
+                            src="https://scontent.fdac189-1.fna.fbcdn.net/v/t39.30808-6/486178649_2416716892016139_4484602831372546029_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=UzvVlbDVMk0Q7kNvwEGqJtk&_nc_oc=AdmFKc83sZ2nFx5-WR9TszhYxLBEc4UnkOCIEhRLYlnY4Sck_vhkVST43wxfODaJJ84&_nc_zt=23&_nc_ht=scontent.fdac189-1.fna&_nc_gid=j-MtWpZZiN9R6eJAXgWwQw&oh=00_AfhiEiYAolyUKU81osD7FsePpEStIOZGgVToFd9u-kSiTw&oe=691AB1E5"
+                            alt="Mahinuzzaman Shaan"
+                            className="rounded-full shadow-2xl object-cover w-75 h-75 lg:w-85 lg:h-85"
+                        />
                     </div>
                     <div className="w-full lg:w-2/3 text-center lg:text-left">
                         <p className="text-lg text-gray-400">I'm Mahinuzzaman Shaan, and I enjoy</p>
                         <h2 className="text-5xl md:text-6xl font-bold my-4">
                             Building pixel-perfect
-                            <span className="bg-gradient-to-r from-green-300 via-emerald-400 to-teal-500 text-transparent bg-clip-text"> Interactive
+                            <span className="gradient-text bg-gradient-to-r from-green-300 via-emerald-400 to-teal-500"> Interactive
                             </span> apps <span role="img" aria-label="heart">💖</span>
                         </h2>
                         <p className="text-2xl text-gray-300">Full-Stack Developer</p>

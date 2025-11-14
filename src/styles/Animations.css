@@ -15,16 +15,38 @@
                       linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 40px 40px;
 }
+#orb-container {
+    position: absolute;
+    inset: -15% -5% -10% -5%;
+    width: 110%;
+    height: 130%;
+    pointer-events: none;
+    filter: saturate(115%);
+    z-index: 1;
+}
 .orb {
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0) 70%);
-    animation: float 20s infinite ease-in-out;
-    z-index: 1;
+    background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.45) 0%, rgba(16, 185, 129, 0.05) 70%);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.35), inset 0 0 25px rgba(16, 185, 129, 0.2);
+    opacity: var(--orb-opacity, 0.35);
+    filter: blur(var(--orb-blur, 6px));
+    mix-blend-mode: screen;
+    animation: float var(--orb-duration, 24s) ease-in-out infinite;
 }
 @keyframes float {
-    0%, 100% { transform: translateY(0) translateX(0); }
-    50% { transform: translateY(-100px) translateX(50px); }
+    0% {
+        transform: translate3d(0, 0, 0) scale(var(--orb-scale, 1));
+        opacity: calc(var(--orb-opacity, 0.35) * 0.65);
+    }
+    50% {
+        transform: translate3d(var(--orb-shift-x, 80px), calc(var(--orb-shift-y, 140px) * -0.4), 0) scale(calc(var(--orb-scale, 1) * 1.1));
+        opacity: calc(var(--orb-opacity, 0.35) * 1.15);
+    }
+    100% {
+        transform: translate3d(calc(var(--orb-shift-x, 80px) * -1), var(--orb-shift-y, 140px), 0) scale(var(--orb-scale, 1));
+        opacity: calc(var(--orb-opacity, 0.35) * 0.75);
+    }
 }
 
 /* 2. Skills Section: Aurora Animation */
@@ -67,11 +89,11 @@
 }
 .matrix-backdrop {
     position: absolute;
-    inset: -20% 0 -25%;
-    pointer-events: none;   
+    inset: 0;
+    pointer-events: none;
     overflow: hidden;
-    z-index: 1;
-    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.45));
+    z-index: 1; /* sits between animated background and content */
+    mix-blend-mode: lighten;
 }
 .matrix-column {
     position: absolute;
@@ -79,21 +101,25 @@
     left: 50%;
     display: inline-block;
     font-family: 'Source Code Pro', 'JetBrains Mono', 'Courier New', monospace;
-    font-weight: 600;
+    font-weight: 700;
     white-space: nowrap;
     writing-mode: vertical-rl;
     text-orientation: upright;
     letter-spacing: 0.15em;
     line-height: 1.05;
-    color: hsl(var(--matrix-hue, 135) 100% 70%);
-    background: linear-gradient(180deg, rgba(226, 255, 228, 0.9) 0%, rgba(34, 197, 94, 0.9) 40%, rgba(20, 83, 45, 0.1) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 12px rgba(16, 185, 129, 0.55), 0 0 28px rgba(16, 185, 129, 0.35);
-    mix-blend-mode: screen;
-    opacity: 0.6;
-    animation: matrix-fall 10s linear infinite;
+    /* Force a bright solid color so the matrix is visible across browsers. */
+    color: #66ff8c !important;
+    /* Remove gradient clipping dependency for visibility. */
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: currentColor !important;
+    text-shadow: 0 0 12px rgba(102, 255, 140, 0.8), 0 0 30px rgba(16, 185, 129, 0.55);
+    mix-blend-mode: normal;
+    opacity: var(--matrix-opacity, 0.8);
+    filter: blur(var(--matrix-blur, 0.6)px) drop-shadow(0 0 6px rgba(16, 185, 129, 0.45));
+    animation: matrix-fall 12s cubic-bezier(0.33, 0.14, 0.11, 0.99) infinite;
+    animation-fill-mode: both;
     will-change: transform;
 }
 .matrix-column::after {
@@ -109,6 +135,18 @@
     filter: blur(3px);
 }
 @keyframes matrix-fall {
-    0% { transform: translate(-50%, -160%); }
-    100% { transform: translate(-50%, 180%); }
+    0% {
+        transform: translate(-50%, -120%);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--matrix-opacity, 0.8);
+    }
+    90% {
+        opacity: var(--matrix-opacity, 0.8);
+    }
+    100% {
+        transform: translate(-50%, 120%);
+        opacity: 0;
+    }
 }

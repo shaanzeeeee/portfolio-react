@@ -1,3 +1,19 @@
+.footer-surface {
+    position: relative;
+}
+
+.footer-surface::before,
+.footer-surface::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
 /* Base styling */
 html,
 body {
@@ -22,6 +38,148 @@ body {
     background-color: #111827; /* Dark gray */
     color: #fff;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.gradient-text {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+body.theme-dark {
+    background-color: #111827;
+    color: #f8fafc;
+}
+
+body.theme-light {
+    background-color: #f4f6fb;
+    color: #050915;
+}
+
+body.theme-light h1,
+body.theme-light h2,
+body.theme-light h3,
+body.theme-light h4,
+body.theme-light h5,
+body.theme-light h6,
+body.theme-light p,
+body.theme-light span,
+body.theme-light li,
+body.theme-light a,
+body.theme-light label {
+    color: #050915;
+}
+
+body.theme-light .gradient-text {
+    color: transparent !important;
+}
+
+body.theme-light .text-gray-400,
+body.theme-light .text-gray-300,
+body.theme-light .text-gray-500,
+body.theme-light .text-gray-200 {
+    color: #050915 !important;
+}
+
+body.theme-light .animated-bg {
+    background-color: #f6f7fb;
+}
+
+body.theme-light .glass-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    color: inherit;
+}
+
+body.theme-light .skill-icon-wrapper {
+    background-color: #edf1f7;
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.7);
+}
+
+body.theme-light .skill-icon-wrapper::after {
+    background-color: rgba(248, 250, 252, 0.95);
+    color: #0b1120;
+}
+
+body.theme-light .section-title {
+    background: rgba(248, 249, 252, 0.85);
+    color: #0b1120;
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow: inset 0 1px 6px rgba(255, 255, 255, 0.35), 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+body.theme-light .timeline-line {
+    background-image: linear-gradient(to bottom, rgba(16, 185, 129, 0.85) 4px, transparent 4px);
+}
+
+body.theme-light .hero-download,
+body.theme-light .project-button {
+    color: #050915;
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.08), inset 0 1px 9px rgba(255, 255, 255, 0.32);
+}
+
+body.theme-light .nav-icon {
+    color: #050915;
+    background-image: linear-gradient(130deg, rgba(248, 250, 252, 0.92), rgba(226, 232, 240, 0.85));
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.6), 0 14px 24px rgba(15, 23, 42, 0.1);
+}
+
+body.theme-light .nav-icon::after {
+    background-color: rgba(248, 250, 252, 0.95);
+    color: #050915;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+}
+
+.footer-surface {
+    background: radial-gradient(circle at top, rgba(30, 64, 175, 0.08), transparent 55%),
+                linear-gradient(180deg, #0b1120 0%, #020617 100%);
+    color: #e2e8f0;
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.footer-surface p,
+.footer-surface span,
+.footer-surface a,
+.footer-surface svg {
+    color: #e2e8f0;
+    fill: currentColor;
+}
+
+body.theme-light .footer-surface {
+    background: radial-gradient(circle at top, rgba(79, 70, 229, 0.05), transparent 55%),
+                linear-gradient(180deg, rgba(248, 249, 252, 0.98) 0%, rgba(234, 237, 244, 0.95) 100%);
+    color: #0b1120;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.theme-light .footer-surface a,
+body.theme-light .footer-surface p,
+body.theme-light .footer-surface span,
+body.theme-light .footer-surface svg {
+    color: #0b1120;
+    fill: currentColor;
+}
+
+body.theme-light .footer-surface .text-gray-400 {
+    color: #1f2933;
+}
+
+body.theme-dark .footer-surface .text-gray-400 {
+    color: rgba(226, 232, 240, 0.85);
+}
+
+body.theme-light .bg-gray-900\/80 {
+    background-color: rgba(247, 248, 252, 0.92) !important;
+    color: #0f172a;
+    box-shadow: 0 1px 12px rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light footer,
+body.theme-light header {
+    color: inherit;
 }
 
 .scroll-reveal {
@@ -354,4 +512,35 @@ body {
     line-height: 1.2;
     box-shadow: inset 0 1px 6px rgba(255, 255, 255, 0.08), 0 18px 32px rgba(16, 185, 129, 0.14);
     backdrop-filter: blur(10px);
+}
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    border-radius: 9999px;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    background: rgba(15, 23, 42, 0.7);
+    color: #f8fafc;
+    box-shadow: inset 0 1px 6px rgba(255, 255, 255, 0.14), 0 10px 20px rgba(15, 23, 42, 0.32);
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.theme-toggle-btn svg {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.theme-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 22px rgba(15, 23, 42, 0.35), inset 0 1px 8px rgba(255, 255, 255, 0.2);
+}
+
+body.theme-light .theme-toggle-btn {
+    background: rgba(248, 250, 252, 0.85);
+    border-color: rgba(15, 23, 42, 0.12);
+    color: #0f172a;
+    box-shadow: inset 0 1px 6px rgba(255, 255, 255, 0.7), 0 10px 16px rgba(15, 23, 42, 0.08);
 }

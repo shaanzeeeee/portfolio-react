@@ -4,21 +4,22 @@ const Education = () => {
     const glyphSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZあいうえおカキクケコ';
 
     const baseMatrixColumns = useMemo(() => {
-        const totalColumns = 28;
+        const totalColumns = 32;
         const columns = [];
 
         for (let i = 0; i < totalColumns; i += 1) {
-            const length = 20 + Math.floor(Math.random() * 18);
+            const length = 24 + Math.floor(Math.random() * 18);
             columns.push({
                 id: `matrix-${i}`,
                 length,
                 content: Array.from({ length }, () => glyphSet[Math.floor(Math.random() * glyphSet.length)]).join(''),
-                left: 5 + Math.random() * 90,
-                duration: 8 + Math.random() * 8,
-                delay: -Math.random() * 12,
-                fontSize: 14 + Math.random() * 10,
-                opacity: 0.35 + Math.random() * 0.55,
+                left: 2 + Math.random() * 96,
+                duration: 12 + Math.random() * 10,
+                delay: -Math.random() * 24,
+                fontSize: 16 + Math.random() * 12,
+                opacity: 0.45 + Math.random() * 0.4,
                 hue: 115 + Math.random() * 35,
+                blur: 0.5 + Math.random() * 0.7,
             });
         }
 
@@ -38,12 +39,12 @@ const Education = () => {
                     chars[index] = glyphSet[Math.floor(Math.random() * glyphSet.length)];
                 }
 
-                const nextHue = Math.max(105, Math.min(155, column.hue + (Math.random() * 8 - 4)));
-
+                // Only update the column content here. Avoid mutating the hue on every
+                // interval because frequent inline style updates (CSS variables)
+                // can trigger animation restarts in some browsers.
                 return {
                     ...column,
                     content: chars.join(''),
-                    hue: nextHue,
                 };
             }));
         }, 220);
@@ -55,22 +56,19 @@ const Education = () => {
         {
             title: "Bachelor of Science in Computer Science",
             institution: "BRAC University",
-            duration: "Feb 2021 - July 2025",
-            grade: "3.54/4.00",
+            grade: "CGPA: 3.56/4.00",
             align: "right"
         },
         {
             title: "Higher Secondary Certificate (HSC)",
             institution: "Dr. Mahbubur Rahman Mollah College",
-            duration: "Sep 2018 - Jun 2020 (2 yrs)",
-            grade: "5.00/5.00",
+            grade: "GPA: 5.00/5.00",
             align: "left"
         },
         {
             title: "Secopndary School Certificate (SSC)",
             institution: "Ideal School and College",
-            duration: "Jan 2010 - Feb 2018 (8 yrs)",
-            grade: "5.00/5.00",
+            grade: "GPA: 5.00/5.00",
             align: "right"
         }
     ];
@@ -87,8 +85,9 @@ const Education = () => {
                             animationDuration: `${column.duration}s`,
                             animationDelay: `${column.delay}s`,
                             fontSize: `${column.fontSize}px`,
-                            opacity: column.opacity,
+                            '--matrix-opacity': column.opacity,
                             '--matrix-hue': `${column.hue}`,
+                            '--matrix-blur': column.blur,
                         }}
                     >
                         {column.content}
@@ -113,7 +112,6 @@ const Education = () => {
                                                 <div className="glass-card rounded-lg p-6 scroll-reveal" style={{ '--reveal-delay': `${index * 150}ms` }}>
                                                     <h4 className="font-bold text-xl mb-1">{item.title}</h4>
                                                     <p className="text-gray-400">{item.institution}</p>
-                                                    <p className="text-sm text-gray-500 mt-2">{item.duration}</p>
                                                     <p className="text-sm text-gray-500 mt-2 font-bold">{item.grade}</p>
                                                 </div>
                                             </div>
@@ -126,7 +124,6 @@ const Education = () => {
                                                 <div className="glass-card rounded-lg p-6 scroll-reveal" style={{ '--reveal-delay': `${index * 150}ms` }}>
                                                     <h4 className="font-bold text-xl mb-1">{item.title}</h4>
                                                     <p className="text-gray-400">{item.institution}</p>
-                                                    <p className="text-sm text-gray-500 mt-2">{item.duration}</p>
                                                     <p className="text-sm text-gray-500 mt-2 font-bold">{item.grade}</p>
                                                 </div>
                                             </div>
