@@ -2,82 +2,82 @@ import React, { useEffect, useState } from 'react';
 
 const projectEntries = [
     {
-        id: 'jucr',
-        title: 'JUCR Charging Platform',
-        role: 'Senior Backend Engineer',
-        timeframe: 'Dec 2022 - Now',
+        id: 'thik-achi',
+        title: 'Thik Achi - Fitness Tracking App',
+        role: 'Full-Stack Developer',
+        timeframe: 'Personal Project',
         bullets: [
-            'Led payment, wallet, and banking systems that power JUCR\'s EV charging marketplace.',
-            'Shipped an e-mobility service connecting drivers to 200k+ charging stations across Europe.',
-            'Implemented domain-driven, event-sourced services with TypeScript, Node.js, Kafka, and MongoDB.',
-            'Partnered with product, data, and design teams to release new charging experiences twice per quarter.'
+            'Developed a fitness webapp where users can track their day-to-day fitness goals and activity.',
+            'Implemented user authentication and personalized dashboard for tracking workouts and progress.',
+            'Built RESTful API with Express.js and MongoDB for seamless data management.',
+            'Tools Used: JavaScript, React.js, MongoDB, Express.js, Node.js'
         ],
         media: {
-            tagline: 'Scaling European EV charging at startup speed',
-            layout: 'overlap',
+            tagline: 'Track your fitness journey with ease',
+            layout: 'standard',
             images: [
                 {
-                    src: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop',
-                    alt: 'JUCR mobile app interface',
-                    className: 'rounded-3xl shadow-lg h-64 object-cover'
+                    src: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop',
+                    alt: 'Fitness tracking app interface',
+                    className: 'rounded-3xl shadow-lg max-h-64 object-cover'
                 }
             ]
         },
         ctas: [
-            { label: 'Company Site', href: 'https://www.jucr.com/', variant: 'solid' },
-            { label: 'Architecture Highlights', href: 'https://github.com/shaanzeeeee', variant: 'ghost' }
+            { label: 'GitHub Repo', href: 'https://github.com/shaanzeeeee/thik-achi', variant: 'solid' },
+            { label: 'View Demo', href: 'https://github.com/shaanzeeeee', variant: 'ghost' }
         ]
     },
     {
-        id: 'tech-solutions',
-        title: 'Tech Solutions Inc.',
-        role: 'Mid-Level Software Engineer',
-        timeframe: 'Jan 2020 - Nov 2022',
+        id: 'dhuye-dibo',
+        title: 'Dhuye Dibo - Laundry Service Platform',
+        role: 'Full-Stack Developer',
+        timeframe: 'Personal Project',
         bullets: [
-            'Scaled a B2B SaaS analytics suite used daily by global enterprise teams.',
-            'Delivered React + Python features that reduced onboarding time by 30%.',
-            'Optimized MongoDB + PostgreSQL queries to cut dashboard latency by 15%.',
-            'Mentored junior engineers through pairing, architecture reviews, and guild talks.'
+            'Developed a webapp for online laundry service with booking and order management.',
+            'Created responsive UI using Bootstrap for seamless user experience across devices.',
+            'Implemented backend with PHP and MySQL for handling customer orders and data.',
+            'Tools Used: HTML, CSS, Bootstrap, PHP, MySQL'
         ],
         media: {
-            tagline: 'Insightful dashboards for enterprise teams',
+            tagline: 'Convenient laundry service at your doorstep',
             images: [
                 {
-                    src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-                    alt: 'Analytics dashboard mockups',
+                    src: 'https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=2070&auto=format&fit=crop',
+                    alt: 'Laundry service app interface',
                     className: 'rounded-xl shadow-2xl max-h-64 object-cover'
                 }
             ]
         },
         ctas: [
-            { label: 'SaaS Repo', href: 'https://github.com/shaanzeeeee?tab=repositories', variant: 'solid' },
-            { label: 'Process Notes', href: 'https://www.linkedin.com/in/mahinuzzaman-shaan/', variant: 'ghost' }
+            { label: 'GitHub Repo', href: 'https://github.com/shaanzeeeee/dhuye-dibo', variant: 'solid' },
+            { label: 'Project Details', href: 'https://github.com/shaanzeeeee', variant: 'ghost' }
         ]
     },
     {
-        id: 'innovatech',
-        title: 'Innovatech',
-        role: 'Junior Frontend Developer',
-        timeframe: 'Jun 2018 - Dec 2019',
+        id: 'bangla-mcq',
+        title: 'Uttor Dao - Bangla MCQ Generator',
+        role: 'ML Research & Development',
+        timeframe: 'Thesis Project',
         bullets: [
-            'Crafted responsive marketing sites and dashboards from high-fidelity Figma files.',
-            'Integrated REST APIs to deliver personalised content for enterprise customers.',
-            'Built reusable UI patterns that accelerated delivery across five product teams.',
-            'Supported production launches by partnering with QA to triage and resolve issues fast.'
+            'Developed an MCQ generator based on Bangla language using T5 transformer model.',
+            'Created a Bengali QnA dataset from scratch in SQUAD format for model training.',
+            'Implemented a RAG-powered system to test and benchmark the MCQ Generator.',
+            'Tools Used: Python, AdamW, PyTorch, Pandas, NumPy, Streamlit'
         ],
         media: {
-            tagline: 'Designing beautiful, modular marketing sites',
+            tagline: 'AI-powered Bengali question generation',
             images: [
                 {
-                    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop',
-                    alt: 'Design and engineering sprint collaboration',
+                    src: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2070&auto=format&fit=crop',
+                    alt: 'AI machine learning model visualization',
                     className: 'rounded-xl shadow-2xl max-h-64 object-cover'
                 }
             ]
         },
         ctas: [
-            { label: 'UI Kit Repo', href: 'https://github.com/shaanzeeeee?tab=stars', variant: 'solid' },
-            { label: 'Live Preview', href: 'https://codesandbox.io/dashboard/recent', variant: 'ghost' }
+            { label: 'Test Live', href: 'https://uttordao.streamlit.app/', variant: 'solid' },
+            { label: 'Research Paper', href: 'https://dspace.bracu.ac.bd:8443/xmlui/handle/10361/26645', variant: 'ghost' }
         ]
     }
 ];
