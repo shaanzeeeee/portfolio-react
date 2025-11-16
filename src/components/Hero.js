@@ -44,7 +44,7 @@ const Hero = () => {
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-16">
                     <div className="w-full lg:w-1/3 flex justify-center">
                         <img
-                            src="https://scontent.fdac189-1.fna.fbcdn.net/v/t39.30808-6/486178649_2416716892016139_4484602831372546029_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=UzvVlbDVMk0Q7kNvwEGqJtk&_nc_oc=AdmFKc83sZ2nFx5-WR9TszhYxLBEc4UnkOCIEhRLYlnY4Sck_vhkVST43wxfODaJJ84&_nc_zt=23&_nc_ht=scontent.fdac189-1.fna&_nc_gid=j-MtWpZZiN9R6eJAXgWwQw&oh=00_AfhiEiYAolyUKU81osD7FsePpEStIOZGgVToFd9u-kSiTw&oe=691AB1E5"
+                            src={`${process.env.PUBLIC_URL}/sm.png`}
                             alt="Mahinuzzaman Shaan"
                             className="rounded-full shadow-2xl object-cover w-75 h-75 lg:w-85 lg:h-85"
                         />
